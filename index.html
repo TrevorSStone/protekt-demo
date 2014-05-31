@@ -9,11 +9,9 @@
     <title>Protekt Demo by azharb</title>
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-
+    <link rel="stylesheet" href="stylesheets/style.css">
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -30,12 +28,80 @@
 
       <div class="page-header">
         <h1>Protekt Demo</h1>
-        <p class="lead">A client side password encryption library </p>
+        <p class="lead">A client side password protection utility.</p>
       </div>
 
-      
+      <div class="row demo-div">
+        <div class="col-md-offset-1 col-md-3">
+          <p>Using the same password everywhere? Protekt generates unique passwords for each site you visit by hashing your original password with the domain name.</p>
+          <br/>
+          <div class="alert alert-info">
+            <h5>Try it:</h5>
+            <input type="password" class="form-control" placeholder="Enter password" id="demo-password-field"/>
+          </div>
+        </div>
 
+        <div class="col-md-7 col-md-offset-1">
+          <div class="col-md-4">
+            <div class="panel panel-info" data-domain="google.com">
+              <div class="panel-heading">
+                Gmail
+              </div>
+              <div class="panel-body"></div>
+            </div> <!-- /panel -->
+          </div> <!-- /panel container -->
+          <div class="col-md-4">
+            <div class="panel panel-info" data-domain="facebook.com">
+              <div class="panel-heading">
+                Facebook
+              </div>
+              <div class="panel-body"></div>
+            </div> <!-- /panel -->
+          </div> <!-- /panel container -->
+          <div class="col-md-4">
+            <div class="panel panel-info" data-domain="twitter.com">
+              <div class="panel-heading">
+                Twitter
+              </div>
+              <div class="panel-body"></div>
+            </div> <!-- /panel -->
+          </div> <!-- /panel container -->
+          <div class="col-md-4">
+            <div class="panel panel-info" data-domain="reddit.com">
+              <div class="panel-heading">
+                Reddit
+              </div>
+              <div class="panel-body"></div>
+            </div> <!-- /panel -->
+          </div> <!-- /panel container -->
+          <div class="col-md-4">
+            <div class="panel panel-info" data-domain="bankofamerica.com">
+              <div class="panel-heading">
+                Bank of America
+              </div>
+              <div class="panel-body"></div>
+            </div> <!-- /panel -->
+          </div> <!-- /panel container -->
+          <div class="col-md-4">
+            <div class="panel panel-info" data-domain="yahoo.com">
+              <div class="panel-heading">
+                Yahoo!
+              </div>
+              <div class="panel-body"></div>
+            </div> <!-- /panel -->
+          </div> <!-- /panel container -->
+        </div>
+      </div>
 
+      <div class="row col-md-12">
+        <h3>How?</h3>
+        <div class="row col-md-12">
+          <div class="col-md-3"><h4>Salt</h4><p>Your original password <b>never</b> gets on the internet. Instead, it gets merged with the domain name of the website you're attempting to log into to prepare a unique starter string which will then be hashed.</p></div>
+          <div class="col-md-3"><h4>Hash</h4><p>The salted string is now hashed using standard <b>SHA3-256</b> hash function which produces a 64 character long cipher that cannot be used to get back the original string.</p></div>
+          <div class="col-md-3"><h4>Rebuild</h4><p>The hash is now <b>rebuilt</b> by taking 4 character blocks from it and replacing them with a character from a 56 character array. Sort of a string representation with an unusual base 56.</p></div>
+          <div class="col-md-3"><h4>Special Characters</h4><p>The resulting string is <b>appended</b> with a special character that is picked by modding the decimal representation of the cipher with the length of permitted special characters.</p></div>
+        </div>
+      </div>
     </div> <!-- /container -->
 
 
@@ -44,11 +110,15 @@
     <!-- Placed at the end of the document so the pages load faster -->
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     
+    <script src="js/script.js"></script>
+    <script src="js/sha3.js"></script>
+    <script src="js/enc-base64-min.js"></script>
+
     <script type="text/javascript">
       var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
       document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
